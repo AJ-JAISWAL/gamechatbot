@@ -1,6 +1,57 @@
 import streamlit as st
 import random
 
+st.set_page_config(page_title="😎🧠 Game Developer Chatbot")
+
+qa_pairs = {
+    "what is game development?": "Game development is the process of creating video games. It involves designing, programming, art creation, and testing.",
+    "what are the different stages of game development?":"The stages typically include concept development, pre-production, production, testing, and post-production.",
+    "which programming languages are commonly used in game development?":"Common languages include C++, C#, Java, and Python.",
+    "What is the role of a game designer?":"Game designers are responsible for conceptualizing game mechanics, creating level designs, and defining the overall gameplay experience.",
+    "what is the difference between 2D and 3D game development?":"2D games are played on a 2-dimensional plane, while 3D games offer a more immersive experience with three-dimensional environments and characters.",
+    "what software is commonly used for game development?":"Popular game development software includes Unity, Unreal Engine, Godot, and GameMaker Studio.",
+    "what skills are essential for a game developer?":"Skills include programming, game design, graphic design, animation, storytelling, and problem-solving.",
+    "how can I learn game development?":"You can learn game development through online tutorials, courses, books, and by practicing with game development software.",
+    "what are some common pitfalls in game development?":"Common pitfalls include scope creep, poor project management, and underestimating development time and costs.",
+    "what is game optimization?":"Game optimization involves improving the performance of a game by reducing resource usage and increasing frame rates.",
+    "what is game monetization?":"Game monetization is the process of generating revenue from a game. This can include selling the game, in-game purchases, ads, or subscription models.",
+    "how do you design engaging gameplay?":"Engaging gameplay is often achieved through a balance of challenge, reward, and player agency. Iterative testing and player feedback are essential.",
+    "what is the importance of storytelling in games?":"Storytelling adds depth and context to the game world, helping players become more emotionally invested in the experience.",
+    "how do you create game art?":"Game art can be created using software like Adobe Photoshop, Blender, Autodesk Maya, or by hand-drawing and scanning.",
+    "what is procedural generation in games?":"Procedural generation involves using algorithms to create game content dynamically, such as levels, terrain, or textures.",
+    "What are shaders in game development?":"Shaders are programs used to render graphics in games, controlling lighting, texture mapping, and special effects.",
+    "What are the steps involved in publishing a game?":"Steps include preparing marketing materials, optimizing performance, testing, and submitting the game to digital distribution platforms.",
+    "What is the difference between indie and AAA game development?":"Indie game development involves small teams or individuals creating games independently, while AAA development typically involves larger budgets and teams working for established studios.",
+    "How do you market a game effectively?":"Effective game marketing involves creating a strong brand identity, building hype through social media and press coverage, and engaging with the gaming community.",
+    "What are some emerging trends in game development?":"Emerging trends include virtual reality, augmented reality, cloud gaming, and blockchain technology.",
+    "What are some good resources for game developers?":"Resources include online forums like Unity or Unreal Engine communities, game development blogs, and conferences like GDC (Game Developers Conference).",
+    "How do you choose the right game engine for your project?":"Consider factors like your team's expertise, the platform you're targeting, licensing costs, and the specific features you need.",
+    "What are some common gameplay mechanics?":"Common mechanics include platforming, puzzle-solving, combat, crafting, and exploration.",
+    "What are some important considerations for multiplayer game development?":"Considerations include networking infrastructure, server architecture, cheat prevention, and matchmaking algorithms.",
+    "How do you balance difficulty in a game?":"Balancing difficulty involves adjusting factors like enemy strength, player abilities, and level design to provide a challenging but fair experience.",
+    "What are some best practices for UI/UX design in games?":"Best practices include clear navigation, intuitive controls, responsive feedback, and consistent visual style.",
+    "What are some legal considerations for game development?":"Legal considerations include copyright, trademarks, licensing agreements, and compliance with industry regulations like age ratings.",
+    "What is the role of sound design in games?":"Sound design enhances immersion and atmosphere in games, providing audio feedback for gameplay actions and setting the mood with music and sound effects.",
+    "How do you implement artificial intelligence in games?":"AI in games can be implemented using techniques like pathfinding, behavior trees, finite state machines, and neural networks.",
+    "What are some common game development patterns and techniques?":"Common patterns include the singleton pattern, observer pattern, and model-view-controller architecture.",
+    "What are some considerations for porting a game to different platforms?":"Considerations include hardware limitations, input methods, performance optimization, and platform-specific features and regulations.",
+    "How do you create a compelling game narrative?":"Compelling narratives often involve well-developed characters, meaningful choices, and a cohesive plot that integrates with gameplay.",
+    "What are some strategies for player retention in games?":"Strategies include regular content updates, social features, achievements, leaderboards, and rewards for long-term engagement.",
+    "How do you design effective game controls?":"Effective controls are intuitive, responsive, and well-suited to the platform and genre of the game.",
+    "What are some considerations for designing accessible games?":"Considerations include providing options for adjustable difficulty, customizable controls, and support for various input devices and assistive technologies.",
+    "What are some techniques for generating game ideas?":"Techniques include brainstorming, drawing inspiration from other media, experimenting with mechanics, and considering current trends and player preferences.",
+    "How do you manage game assets effectively?":"Asset management involves organizing files, version control, and optimizing assets for performance and storage efficiency.",
+    "What are some strategies for playtesting games?":"Strategies include recruiting diverse testers, collecting feedback through surveys and analytics, and observing player behavior in real-time.",
+    "How do you create a cohesive art style for a game?":"Cohesive art styles are achieved through consistent visual elements such as color palettes, character designs, and environmental themes.",
+    "What are some considerations for designing in-game economies?":"Considerations include balancing in-game currencies, regulating item rarity, preventing inflation, and designing fair monetization options.",
+    "What is the role of game producers and project managers?":"Producers and project managers oversee the development process, coordinating tasks, managing budgets and schedules, and facilitating communication within the team.",
+    "How do I create multiplayer games?":"Multiplayer games require networking code to facilitate communication between players, often using client-server architectures.",
+    "What are some game development communities and forums?":"Communities like Unity Forum, Unreal Engine Forum, and Reddit's r/gamedev are great places to connect with other developers, seek advice, and share resources.",
+    "What is game marketing?":"Game marketing involves promoting your game through social media, press releases, trailers, and community engagement to reach potential players."
+}
+
+
+
 qa_pairs1 = {
     "what is game development?": "Game development is the process of creating video games. It involves designing, programming, art creation, and testing.",
     "what are the different stages of game development?":"The stages typically include concept development, pre-production, production, testing, and post-production.",
@@ -19,62 +70,51 @@ qa_pairs1 = {
     "what is procedural generation in games?":"Procedural generation involves using algorithms to create game content dynamically, such as levels, terrain, or textures.",
 }
 qa_pairs2 = {
-    "what is a database in web development?":"A database is a structured collection of data. In web development, databases are used to store and manage information for dynamic websites and web applications.",
-    "what is sql?":"SQL (Structured Query Language) is a standard programming language used to manage relational databases.",
-    "what is nosql?":"NoSQL (Not Only SQL) is a term used to describe databases that use non-relational models. They are often used for large-scale distributed data storage.",
-    "what is git?":"Git is a distributed version control system used to track changes in source code during software development.",
-    "what is a repository in git?":"A repository is a storage location where Git stores files and their history.",
-    "what is version control?":"Version control is a system that records changes to a file or set of files over time so that you can recall specific versions later.",
-    "what is a web server?":"A web server is software that serves web pages to clients over the HTTP protocol.",
-    "what is apache?":"Apache is a popular open-source web server software.",
-    "what is nginx?":"Nginx is a high-performance, open-source web server software used for serving static and dynamic content on the web.",
-    "what is a domain name?":"A domain name is the human-readable address of a website, such as example.com.",
-    "what is dns?":"DNS (Domain Name System) is a system that translates domain names into IP addresses, allowing users to access websites using domain names.",
-    "what is web hosting?":"Web hosting is a service that allows individuals and organizations to make their website accessible via the World Wide Web.",
-    "what is a web browser?":"A web browser is a software application used to access information on the World Wide Web.",
-    "what is a web application?":"A web application is a software application that runs on a web server and is accessed through a web browser over a network.",
-    "what is http?":"HTTP (Hypertext Transfer Protocol) is the protocol used for transmitting data on the World Wide Web.",
-    "what is a cookie?":"A cookie is a small piece of data sent from a website and stored on the user's computer by the web browser."
+    "What are shaders in game development?":"Shaders are programs used to render graphics in games, controlling lighting, texture mapping, and special effects.",
+    "What are the steps involved in publishing a game?":"Steps include preparing marketing materials, optimizing performance, testing, and submitting the game to digital distribution platforms.",
+    "What is the difference between indie and AAA game development?":"Indie game development involves small teams or individuals creating games independently, while AAA development typically involves larger budgets and teams working for established studios.",
+    "How do you market a game effectively?":"Effective game marketing involves creating a strong brand identity, building hype through social media and press coverage, and engaging with the gaming community.",
+    "What are some emerging trends in game development?":"Emerging trends include virtual reality, augmented reality, cloud gaming, and blockchain technology.",
+    "What are some good resources for game developers?":"Resources include online forums like Unity or Unreal Engine communities, game development blogs, and conferences like GDC (Game Developers Conference).",
+    "How do you choose the right game engine for your project?":"Consider factors like your team's expertise, the platform you're targeting, licensing costs, and the specific features you need.",
+    "What are some common gameplay mechanics?":"Common mechanics include platforming, puzzle-solving, combat, crafting, and exploration.",
+    "What are some important considerations for multiplayer game development?":"Considerations include networking infrastructure, server architecture, cheat prevention, and matchmaking algorithms.",
+    "How do you balance difficulty in a game?":"Balancing difficulty involves adjusting factors like enemy strength, player abilities, and level design to provide a challenging but fair experience.",
+    "What are some best practices for UI/UX design in games?":"Best practices include clear navigation, intuitive controls, responsive feedback, and consistent visual style.",
+    "What are some legal considerations for game development?":"Legal considerations include copyright, trademarks, licensing agreements, and compliance with industry regulations like age ratings.",
+    "What is the role of sound design in games?":"Sound design enhances immersion and atmosphere in games, providing audio feedback for gameplay actions and setting the mood with music and sound effects.",
+    "How do you implement artificial intelligence in games?":"AI in games can be implemented using techniques like pathfinding, behavior trees, finite state machines, and neural networks.",
+    "What are some common game development patterns and techniques?":"Common patterns include the singleton pattern, observer pattern, and model-view-controller architecture."
 }
 qa_pairs3 = {
-    "what is cross-site scripting ?":"Cross-site scripting is a security vulnerability that allows attackers to inject malicious scripts into web pages viewed by other users.",
-    "what is a session?":"A session is a period of time during which a user interacts with a web application.",
-    "what is a web framework?":"A web framework is a software framework designed to support the development of web applications.",
-    "what is a template engine?":"A template engine is a software module that generates HTML documents dynamically based on templates and data provided by the developer.",
-    "what is url rewriting?":"URL rewriting is the process of modifying a URL's appearance, typically for the purpose of improving search engine optimization (SEO) or making the URL more user-friendly.",
-    "what is web accessibility?":"Web accessibility refers to the inclusive practice of ensuring websites are usable by people of all abilities and disabilities.",
-    "what is the difference between put and post requests?":"PUT is used to update or replace an existing resource, while POST is used to create a new resource.",
-    "what is a web service?":"A web service is a software system designed to support interoperable machine-to-machine interaction over a network.",
-    "what is a microservice architecture?":"Microservice architecture is an architectural style that structures an application as a collection of small, loosely coupled services.",
-    "what is serverless computing?": "Serverless computing is a cloud computing execution model in which the cloud provider dynamically manages the allocation of machine resources.",
-    "what is progressive web app?": "Progressive Web Apps are web applications that use modern web capabilities to provide a user experience similar to that of native apps.",
-    "what is single page application (SPA)?": "A Single Page Application is a web application that interacts with the user by dynamically rewriting the current page rather than loading entire new pages from the server.",
-    "what is web scraping?": "Web scraping is the process of extracting data from websites.",
-    "what is a web socket?": "A web socket is a communication protocol that provides full-duplex communication channels over a single TCP connection.",
-    "what is a cdn?": "A CDN (Content Delivery Network) is a distributed network of servers that delivers web content to users based on their geographic location.",
-    "what is a framework in javascript?": "A JavaScript framework is a pre-written JavaScript code library that makes it easier for developers to build dynamic web pages and web applications.",
-    "what is the difference between synchronous and asynchronous programming?": "In synchronous programming, operations block until the task is completed, while in asynchronous programming, operations can continue while waiting for a task to complete.",
-    "what is web performance optimization?": "Web performance optimization is the process of improving the speed and efficiency of a website or web application."
+    "What are some considerations for porting a game to different platforms?":"Considerations include hardware limitations, input methods, performance optimization, and platform-specific features and regulations.",
+    "How do you create a compelling game narrative?":"Compelling narratives often involve well-developed characters, meaningful choices, and a cohesive plot that integrates with gameplay.",
+    "What are some strategies for player retention in games?":"Strategies include regular content updates, social features, achievements, leaderboards, and rewards for long-term engagement.",
+    "How do you design effective game controls?":"Effective controls are intuitive, responsive, and well-suited to the platform and genre of the game.",
+    "What are some considerations for designing accessible games?":"Considerations include providing options for adjustable difficulty, customizable controls, and support for various input devices and assistive technologies.",
+    "What are some techniques for generating game ideas?":"Techniques include brainstorming, drawing inspiration from other media, experimenting with mechanics, and considering current trends and player preferences.",
+    "How do you manage game assets effectively?":"Asset management involves organizing files, version control, and optimizing assets for performance and storage efficiency.",
+    "What are some strategies for playtesting games?":"Strategies include recruiting diverse testers, collecting feedback through surveys and analytics, and observing player behavior in real-time.",
+    "How do you create a cohesive art style for a game?":"Cohesive art styles are achieved through consistent visual elements such as color palettes, character designs, and environmental themes.",
+    "What are some considerations for designing in-game economies?":"Considerations include balancing in-game currencies, regulating item rarity, preventing inflation, and designing fair monetization options.",
+    "What is the role of game producers and project managers?":"Producers and project managers oversee the development process, coordinating tasks, managing budgets and schedules, and facilitating communication within the team.",
+    "How do I create multiplayer games?":"Multiplayer games require networking code to facilitate communication between players, often using client-server architectures.",
+    "What are some game development communities and forums?":"Communities like Unity Forum, Unreal Engine Forum, and Reddit's r/gamedev are great places to connect with other developers, seek advice, and share resources.",
+    "What is game marketing?":"Game marketing involves promoting your game through social media, press releases, trailers, and community engagement to reach potential players."
 }
 
 pairs = [qa_pairs1, qa_pairs2, qa_pairs3]
-random_pair = qa_pairs1
+random_pair = random.choice(pairs)
 
-def respond_to_question(question):
-    if question in random_pair:
-        return random_pair[question]
-    else:
-        return "Enter Wrong Information! Please Check The Query?"
-st.set_page_config(page_title="😎🧠 Game Developer Chatbot")
+st.title("Game Developer ChatBot")
+
 
 with st.sidebar:
     st.title('😎🧠 Game Developer Chatbot')
-    st.write('This chatbot will provide the knowledge about Game Development.')
-    st.write("Today questions task to learn.")
+    st.write('**This chatbot will provide the knowledge about Game Development.**')
+    st.write("**Today questions task to learn.**")
     for i in random_pair:
         st.write(i)
-
-st.title("Game Developer ChatBot")
 
 if "messages" not in st.session_state.keys():
     st.session_state.messages = [{"role": "assistant", "content": "How May I Help You Today?"}]
@@ -83,11 +123,15 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.write(message["content"])
 
-
 def clear_chat_history():
-    st.session_state.messages = [
-        {"role": "assistant", "content": "How May I Help You Today?"}]
-st.sidebar.button('Clear Chat History', on_click=clear_chat_history())
+    st.session_state.messages = [{"role": "assistant", "content": "How May I Help You Today?"}]
+st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
+
+def respond_to_question(question):
+    if question in qa_pairs:
+        return qa_pairs[question]
+    else:
+        return "Enter Wrong Information! Please Check The Query?"
 
 if prompt := st.chat_input():
     st.session_state.messages.append({"role": "user", "content": prompt})
@@ -98,7 +142,7 @@ if prompt := st.chat_input():
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
-            response = respond_to_question(prompt.lower())
+            response = respond_to_question(prompt)
             placeholder = st.empty()
             full_response = ''
             for item in response:
@@ -107,4 +151,3 @@ if st.session_state.messages[-1]["role"] != "assistant":
             placeholder.markdown(full_response)
     message = {"role": "assistant", "content": full_response}
     st.session_state.messages.append(message)
-
