@@ -43,3 +43,7 @@ python game_bot.py
 ##### Conclusion:
 
 In Conclusion , HackHazards Chatbot Development project utilizes Python, NLP, and ML to create specialized chatbots for ML, Web Dev, and Game Dev, aiding hackathon participants with domain-specific guidance and information.
+
+##### Screanshots:
+https://github.com/AJ-JAISWAL/hackhazards_chatbot/assets/108292938/b67e6bf0-2b82-406f-adaf-1a1299035c24
+https://github.com/AJ-JAISWAL/hackhazards_chatbot/assets/108292938/15a44652-4677-4fc1-9a1c-1df4ab01b05b
