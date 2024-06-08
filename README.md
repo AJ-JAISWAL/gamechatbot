@@ -46,8 +46,6 @@ In Conclusion , HackHazards Chatbot Development project utilizes Python, NLP, an
 
 ##### Screanshots:
 
-https://github.com/AJ-JAISWAL/hackhazards_chatbot/assets/108292938/b67e6bf0-2b82-406f-adaf-1a1299035c24
+![Screenshot 2024-06-08 142342](https://github.com/AJ-JAISWAL/hackhazards_chatbot/assets/108292938/607eb7de-d005-49b8-ac0b-66b53f3d68d6)
 
 ![Screenshot 2024-06-08 142248](https://github.com/AJ-JAISWAL/hackhazards_chatbot/assets/108292938/15a44652-4677-4fc1-9a1c-1df4ab01b05b)
-
-https://github.com/AJ-JAISWAL/hackhazards_chatbot/assets/108292938/15a44652-4677-4fc1-9a1c-1df4ab01b05b
